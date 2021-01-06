@@ -1,0 +1,80 @@
+
+
+.brand {
+  font-size: 2.5rem;
+  color: var(--fontColor);
+  font-family: var(--fontFamily);
+  font-weight: 900;
+}
+
+li a {
+  color: var(--fontColor);
+   font-family: var(--fontFamily);
+  font-size: 2rem;
+  font-weight: 900;
+  padding: 1rem;
+  justify-content: center;
+}
+.navBarIcon{
+    color: #ce9ad1;
+}
+
+.cartIcon {
+  background: linear-gradient(
+    to bottom right,
+    rgba(246, 211, 117),
+    rgba(247, 174, 171),
+    rgba(206, 154, 209)
+  );
+  color: white;
+  font-size: 1.6rem;
+   border-radius: .3rem;
+  padding: 1rem;
+  background-size: 300% 100%;
+  background-position: 100%;
+  transition: background-position 275ms ease;
+  transition: all 0.5s ease-in-out;
+}
+
+.cartIcon:hover {
+  color: #ce9ad1;
+  background-position: 0 0;
+}
+li a:hover,
+.brand:hover {
+  color: #f7aeab;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+/* ------------- */
+.cartItemsNum{
+  font-size: 2rem;
+}
+.customCartNumStyle{
+  /* font-family: var(--fontFamily); */
+  font-weight: 600;
+  padding-left: 1rem;
+
+}
+
+
+@media only screen and (min-width: 200px) and (max-width: 280px) {
+ .navbar{
+  text-align: center;
+}
+  
+}
+/* Ipad */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .navbar{
+  text-align: center;
+}
+}
+
+/* Mobiles */
+@media only screen and (min-width: 200px) and (max-width: 767px) {
+  .navbar{
+  text-align: center;
+}
+}

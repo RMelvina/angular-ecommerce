@@ -1,0 +1,27 @@
+<div *ngIf = "displayCloseIcon">
+    <i class="fa fa-times cartCloseIcon" (click)="close.emit()"></i>
+</div>
+
+<div class="container " *ngIf = "displayItems">
+    
+  
+    <h1 class="productName">{{product.pName}}</h1>
+    <img src={{product.pImg}} class="img-fluid " alt="">
+    <h5 class="productPrice mt-3">${{product.pPrice}}</h5>
+    <!-- <span class="productPrice">${{product.pPrice}}</span> -->
+
+    <div class="container d-flex align-items-center justify-content-center">
+        <i class="fa fa-angle-left arrowIcons p-3" (click)="add.emit()"></i>
+        <input onkeydown="return false" class="inputField" type="text" value={{product.qty}} name="" id="" >
+        <i class="fa fa-angle-right arrowIcons p-3" (click)="min.emit()"></i>
+    </div>
+    <div>
+        <h5 class="productSubTotal">Sub Total : <span>${{product.subTotal}}</span></h5>
+    </div>
+
+    
+
+</div>
+
+  
+

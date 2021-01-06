@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+/* calc(100vh - 68px); calc(100vh - 76px) */
+:root {
+  --fontColor: #ce9ad1;
+  --fontFamily: 'Patrick Hand', cursive;
+  --sectionMinHeight: calc(100vh - 76px);
+  --bakcgroundGradient:linear-gradient(
+    to bottom right,
+    rgba(246, 211, 117),
+    rgba(247, 174, 171),
+    rgba(206, 154, 209)
+  );
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* .font-color{
+     color: #ce9ad1;
+} */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

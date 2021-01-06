@@ -1,0 +1,63 @@
+@import "../../components/navbar/navbar.component.css";
+
+.iconCol {
+  padding: 2rem;
+}
+.cartCloseIcon {
+  color: white;
+  font-size: 2rem;
+  padding: 1rem;
+  background: linear-gradient(
+    to top left,
+    rgba(247, 174, 171),
+    rgba(246, 211, 117),
+    rgba(206, 154, 209)
+  );
+  cursor: pointer;
+}
+.cartImg {
+  width: 3rem;
+}
+
+.arrowIcons {
+  font-size: 2rem;
+  font-weight: 900;
+  color: rgba(246, 211, 117);
+}
+input[type="text"] {
+  width: 1.5rem;
+  color: transparent;
+  text-shadow: 0 0 0 rgb(244, 242, 242);
+  text-align: center;
+  border: none;  
+  font-size: 1.4rem;
+  background-color: transparent;
+}
+input:focus {
+  outline: none;
+}
+.productPrice,
+.productName,
+.gTotal,
+.productSubTotal{
+  font-family: var(--fontFamily);
+  color: #ffffff;
+  font-size: 2rem;
+}
+.productSubTotal{
+  font-size: 1.8rem;
+}
+.divider{
+  border: 2px solid white
+}
+.checkoutBtn{
+  background: var(--bakcgroundGradient);
+  color: white;
+  font-size: 2rem;
+  font-family: var(--fontFamily);
+  
+}
+
+
+
+

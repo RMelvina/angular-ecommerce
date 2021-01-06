@@ -1,0 +1,62 @@
+<div class="row addToCartDialog">
+    <div class="col-lg-6 col-md-12 col-sm-12">
+        <img src={{data.img}} class="img-fluid dialogImg" alt="product Image">
+    </div>
+    <div class="col-lg-6 col-md-12 col-sm-12">
+        <h1 mat-dialog-title class="text-center title"> {{data.name}}</h1>
+        <h2 class="price">${{data.price}}</h2>
+        <p class="dialogPg">{{data.description}}</p>
+        <input matInput type="number"  min="0" max="10" [(ngModel)]="data.qty" value={{data.qty}}>
+
+        <div class="container addToCartDialogBtn-container">
+            <button mat-raised-button class="btn addToCartDialogBtn mr-4" (click)="onNoClick()">No Thanks</button>
+            <button mat-raised-button class="btn addToCartDialogBtn" [mat-dialog-close]="data.qty" cdkFocusInitial>Ok</button>
+        </div>
+    </div>
+
+</div>
+
+<!-- <div class="container-fluid" mat-dialog-content>
+    <div class="row addToCartDialog  justfiy-content-center bg-info">
+      
+    
+        <div class="col-lg-6 col-md-12 col-sm-12">
+            <img src={{data.img}} class="img-fluid" alt="product Image">
+        </div>
+       
+        <div class="col-lg-6 col-md-12 col-sm-12">
+    
+            
+            <h1 mat-dialog-title class="text-center title"> {{data.name}}</h1>
+
+    
+            <h2 class="price">${{data.price}}</h2>
+           
+    
+            <p class="dialogPg">{{data.description}}</p>
+            
+    
+           
+            <input matInput type="number" min="0" max="10" [(ngModel)]="data.qty" value={{data.qty}}>
+     
+    
+            <div mat-dialog-actions class="container addToCartDialogBtn-container">
+                <button mat-raised-button class="btn addToCartDialogBtn" (click)="onNoClick()">No Thanks</button>
+                <button mat-raised-button class="btn addToCartDialogBtn" [mat-dialog-close]="data.qty"
+                    cdkFocusInitial>Ok</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- <h1 mat-dialog-title> {{data.name}}</h1>
+<div mat-dialog-content class="justfiy-content-center">
+    <p>{{data.price}}</p>
+   
+    <img src={{data.img}} class="img-fluid" alt="">
+    <input matInput type="number" min="0" max="10" [(ngModel)]="data.qty" value={{data.qty}}>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="data.qty" cdkFocusInitial>Ok</button>
+   
+</div> -->

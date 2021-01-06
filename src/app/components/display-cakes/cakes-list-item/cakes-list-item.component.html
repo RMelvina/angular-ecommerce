@@ -1,0 +1,61 @@
+<!-- <div  *ngIf="section1"> -->
+
+<!-- <div class="card mt-4"> -->
+
+<div class="img-container">
+    <a [title]="cakeItem.name" [routerLink]="['/info', cakeItemId]">
+        <div class="overlay">
+            <img src={{cakeItem.img}} class="img-fluid imgSize" alt="">
+        </div>
+    </a>
+    <!-- <button type="button" class="btn shoppingCartIcon font-color fa fa-shopping-cart" 
+        (click)="onClickEvent.emit()">
+    </button> -->
+</div>
+
+<div class="card-body">
+    <div class="text-center d-flex justify-content-center flex-column">
+        <h2 class="heading">{{cakeItem.name}}</h2>
+        <!-- {{cakeItem.name}} -->
+        <span class="buyPrice">${{cakeItem.price}}</span>
+       
+    </div>
+
+    <div class="d-flex justify-content-center productAddToCartBtnCon">
+        <button type="button"  mat-raised-button class="btn productAddToCartBtn " (click)="onClickEvent.emit()">
+            Add To Cart
+        </button>
+
+        <!-- <a [routerLink]="['/info', cakeItemId]"> -->
+            <button type="button" [routerLink] = "['/info', cakeItemId]" mat-raised-button class="btn productViewDetailsBtn ">
+                More Details
+            </button>
+        <!-- </a> -->
+    </div>
+    <!-- <div class=" bg-primary heading">
+        <span class="buyPrice">${{cakeItem.price}}</span>
+    </div> -->
+
+
+
+    <!-- <div class="bg-info heading">{{cakeItem.name}}</div>
+    <div class=" bg-warning buyPrice">${{cakeItem.price}}</div>
+    <div>
+        <button type="button" class="btn shoppingCartIcon font-color fa fa-shopping-cart" (click)="onClickEvent.emit()">
+        </button>
+    </div> -->
+
+
+
+    <!-- d-flex justify-content-between align-items-center -->
+
+    <!-- <h2 class="heading">{{cakeItem.name}}</h2>
+    <span class="buyPrice font-color">${{cakeItem.price}}</span> -->
+
+</div>
+
+<!-- </div> -->
+<!-- <h2 class="heading text-center">{{cakeItem.name}}</h2>
+    <img src={{cakeItem.img}} class="img-fluid" alt=""> -->
+
+<!-- </div> -->

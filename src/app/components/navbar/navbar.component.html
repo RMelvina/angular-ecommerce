@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg">
+   
+    <a [ngClass]="['navbar-brand' , 'brand']" href="#">Cakes</a>
+   
+    <button 
+    class="navbar-toggler" 
+    (click)="openNavbar()" 
+    type="button" 
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent" 
+    aria-controls="navbarSupportedContent" 
+    aria-expanded="false"
+    aria-label="Toggle navigation">
+        <span [ngClass]="[showNavbar, 'navBarIcon','font-size']"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav navbar mx-auto">
+            <li [ngClass]="['nav-item', 'font-size']" *ngFor="let navBarItem of navbarItems ">
+                <a class="nav-link" href={{navBarItem.url}}>{{navBarItem.title}}</a>
+            </li>
+        </ul>
+
+       
+        <i [ngClass]='cIcon'  (click)="openCart.emit()"><span [ngClass]='isStyle'>{{customCartNum}}</span></i>
+        <!-- <h5 class="cartItemsNum pr-3">{{items}} items in the cart</h5> ['cartIconShow', 'font-size']-->
+
+    </div>
+</nav>
+

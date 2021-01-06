@@ -1,0 +1,71 @@
+
+.row-height {
+  /* min-height: calc(100vh - 50px); */
+  min-height: 100%;
+}
+.home-section-1 {
+  
+  min-height: var(--sectionMinHeight) ;
+  background: linear-gradient(
+      rgba(246, 211, 117, 0.5),
+      rgba(246, 211, 117, 0.5)
+    ),
+    url("../../../assets/images/cake0.webp");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.mainTitle {
+  color: white;
+  font-weight: 900;
+  font-size: 6rem;
+}
+
+.open{
+     width: 18rem;
+}
+mat-sidenav {
+  width: 200px;
+}
+
+.exploreBtn {
+  color: white;
+  font-size: 3rem;
+  font-weight: 900;
+  padding: 1.7rem;
+  border-radius: 1rem;
+  transition: all 0.5s ease-in-out;
+  background: linear-gradient(
+    to bottom right,
+    rgba(246, 211, 117),
+    rgba(247, 174, 171),
+    rgba(206, 154, 209)
+  );
+  
+}
+.exploreBtn:hover {
+  background-position: 0 0;
+  color: #ce9ad1;
+}
+
+
+/* MEDIA QURIES */
+@media only screen and (min-width: 200px) and (max-width: 767px) {
+  .mainTitle {
+    color: white;
+    font-weight: 900;
+    font-size: 3rem;
+    text-align: center;
+    padding-bottom: 2rem;
+    
+
+  }
+
+  .home-section-1 {
+    /* background-color: #f6d375; */
+    /* min-height: calc(100vh - 90px); */
+    min-height: 100vh;
+    /* min-height: calc(50vh - 100px); */
+  }
+}

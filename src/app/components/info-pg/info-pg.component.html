@@ -1,0 +1,29 @@
+<section class="container-fluid product-details-container d-flex align-items-center justify-content-center">
+
+    <mat-card class="container outter-details-container d-flex align-items-center">
+        <!-- <div class="container outter-details-container d-flex align-items-center"> -->
+        <div class="row" *ngIf="product">
+            <div class="col-lg-6 d-flex align-items-center">
+                <img mat-card-image src={{product.img}} class="img-fluid " alt="">
+                <!-- <img src={{product.img}} class="img-fluid " alt=""> -->
+            </div>
+            <div class="col-lg-6">
+                <h3 class="productDetailsTitle pt-2">{{ product.name }}</h3>
+                <div *ngIf="product.description" class="productDetailsDesc pt-2">
+                    {{ product.description }}
+                </div>
+
+                <h4 class="productDetailsPrice pt-4">{{ product.price | currency }}</h4>
+
+                <button type="button" mat-raised-button class="btn productDetailsBtn mt-5" 
+                (click) = "addToCart(product.name,product.price,product.img)">
+                    Add To Cart
+                </button>
+            </div>
+        </div>
+
+        <!-- </div> -->
+    </mat-card>
+
+
+</section>

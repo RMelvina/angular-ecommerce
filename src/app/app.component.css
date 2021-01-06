@@ -1,0 +1,39 @@
+@import "./components/cart/cart.component.css";
+
+
+.cart {
+    background-color: lawngreen;
+    height: 100vh;
+}
+
+.cartContainer {
+  background: linear-gradient(
+    to bottom right,
+    rgba(246, 211, 117),
+    rgba(247, 174, 171),
+    rgba(206, 154, 209)
+  );
+  width: 30%;
+}
+
+/* Media Queris */
+/* G */
+@media only screen and (min-width: 200px) and (max-width: 280px) {
+  .cartContainer {
+  width: 100%;
+}
+  
+}
+/* Ipad */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+   .cartContainer {
+  width: 50%;
+   }
+}
+
+/* Mobiles */
+@media only screen and (min-width: 200px) and (max-width: 767px) {
+    .cartContainer {
+  width: 100%;
+}
+}
