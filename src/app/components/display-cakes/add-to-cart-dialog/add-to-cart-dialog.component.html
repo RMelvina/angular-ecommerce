@@ -5,12 +5,13 @@
     <div class="col-lg-6 col-md-12 col-sm-12">
         <h1 mat-dialog-title class="text-center title"> {{data.name}}</h1>
         <h2 class="price">${{data.price}}</h2>
-        <p class="dialogPg">{{data.description}}</p>
-        <input matInput type="number"  min="0" max="10" [(ngModel)]="data.qty" value={{data.qty}}>
+        <p class="dialogPg" >{{data.description}}</p>
+        <input matInput type="number" min="0" max="10" [(ngModel)]="data.qty" value={{data.qty}}>
 
         <div class="container addToCartDialogBtn-container">
             <button mat-raised-button class="btn addToCartDialogBtn mr-4" (click)="onNoClick()">No Thanks</button>
-            <button mat-raised-button class="btn addToCartDialogBtn" [mat-dialog-close]="data.qty" cdkFocusInitial>Ok</button>
+            <button mat-raised-button class="btn addToCartDialogBtn" [mat-dialog-close]="data.qty"
+                cdkFocusInitial>Ok</button>
         </div>
     </div>
 

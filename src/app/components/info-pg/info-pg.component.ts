@@ -10,6 +10,10 @@ import {
 import { AddToCartDialogComponent } from '../display-cakes/add-to-cart-dialog/add-to-cart-dialog.component';
 import {ArrayServicesService} from '../../services/shareArrayService/array-services.service'
 
+export interface DialogData {
+  desc: string;
+  
+}
 
 @Component({
   selector: 'app-info-pg',
@@ -20,6 +24,7 @@ export class InfoPgComponent implements OnInit {
   // Declaration
   product: any;
   qty = 0;
+  description: any;
 
   // Output
   // @Output() addToCart = new EventEmitter();
@@ -37,18 +42,22 @@ export class InfoPgComponent implements OnInit {
   }
 
   // Methods
-  addToCart(name: any, price: any, img: any) {
-     this.openDialogBox(name, img, price);
-     
-   
+  addToCart(name: any, price: any, img: any, desc: any) {
+    this.openDialogBox(name, img, price, desc);
   }
 
-  openDialogBox(name: any, img: any, price: any): void {
+  openDialogBox(name: any, img: any, price: any, desc: any): void {
     const dialogRef = this.dialog.open(AddToCartDialogComponent, {
-      width: '250px',
-      data: { name: name, price: price, img: img, qty: this.qty },
+      // width: '250px',
+      data: {
+        name: name,
+        price: price,
+        img: img,
+        qty: this.qty,
+        description: desc,
+      },
     });
-  
+
     dialogRef.afterClosed().subscribe((result: any) => {
       this.qty = result;
       const array = [name, img, price, this.qty];

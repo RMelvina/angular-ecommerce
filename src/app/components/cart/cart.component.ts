@@ -36,37 +36,37 @@ export class CartComponent implements OnInit {
 
   constructor(private arrayS: ArrayServicesService) {}
 
-  @ViewChild('btnD', { static: true }) private paypalRef:
-    | ElementRef
-    | undefined;
+  // @ViewChild('btnD', { static: true }) private paypalRef:
+  //   | ElementRef
+  //   | undefined;
 
   ngOnInit() {
     // -------
-    console.log(window.paypal);
+    // console.log(window.paypal);
     //  Paypal button
-    window.paypal
-      .Buttons({
-        style: {
-          layout: 'horizontal',
-        },
-        createOrder: (data: any, actions: any) => {
-          return actions.order.create({
-            purchase_units: [
-              {
-                description: 'Good to eat',
-                amount: {
-                  value: this.total,
-                },
-              },
-            ],
-          });
-        },
-        onApprove: (data: any, action: any) => {
-          return action.order.capture();
-        },
-      })
-      .render(this.paypalRef?.nativeElement);
-    // --------------
+    // window.paypal
+    //   .Buttons({
+    //     style: {
+    //       layout: 'horizontal',
+    //     },
+    //     createOrder: (data: any, actions: any) => {
+    //       return actions.order.create({
+    //         purchase_units: [
+    //           {
+    //             description: 'Good to eat',
+    //             amount: {
+    //               value: this.total,
+    //             },
+    //           },
+    //         ],
+    //       });
+    //     },
+    //     onApprove: (data: any, action: any) => {
+    //       return action.order.capture();
+    //     },
+    //   })
+    //   .render(this.paypalRef?.nativeElement);
+    // // --------------
     // Works when the buy button is clicked
     this.arrayS.getMsg().subscribe((items) => {
       this.addToCart(items);
@@ -131,9 +131,14 @@ export class CartComponent implements OnInit {
     }
   }
 
-  checkoutBtn(name:any, total:any){
-    console.log("Your item is: " + name + " \n " + "your total is: " + total) 
+  checkoutBtn(name: any, total: any) {
+    console.log('Your item is: ' + name + ' \n ' + 'your total is: ' + total);
+  }
 
+  clearCart(){
+    this.productsList.length = 0;
+    this.total = 0;
+    
 
   }
 }

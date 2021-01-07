@@ -23,7 +23,13 @@
     <!-- <hr class="divider"> -->
     <div class="container">
         <h2 class="gTotal mt-4">Grand Total : <span>${{total}}</span></h2>
-        <button mat-button-raised class="btn checkoutBtn" *ngIf="total" (click) = "checkoutBtn(products.name,total )" type="button">Checkout</button>
+        <div class="d-flex flex-row justify-content-between">
+
+            <button mat-button-raised class="btn checkoutBtn" *ngIf="total" (click)="checkoutBtn(products.name,total )"
+                type="button">Checkout</button>
+            <button mat-button-raised class="btn checkoutBtn " *ngIf="total" (click)="clearCart()" type="button">Clear Cart</button>
+        </div>
+        
     </div>
 
     
