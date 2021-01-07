@@ -43,8 +43,8 @@ export class NavbarComponent implements OnInit {
 
     this.cartCount.getCartItemMesg().subscribe((items: any) => {
       console.log('show count ' + items);
-
-       if (items == 0) {
+      
+      if (items == 0) {
          this.arrayCount.length = 0;
          this.customCartNum = 0;
        } else{

@@ -11,7 +11,7 @@ export const arrayItems = [
   },
   {
     title: 'Contact',
-    url: 'contact',
+    url: '',
     cName: ['nav-link'],
   },
 ];

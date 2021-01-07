@@ -51,11 +51,27 @@ input:focus {
   border: 2px solid white
 }
 .checkoutBtn{
-  background: var(--bakcgroundGradient);
-  color: white;
-  font-size: 2rem;
-  font-family: var(--fontFamily);
+   /* background: linear-gradient(
+    to bottom right,
+    rgba(246, 211, 117),
+    rgba(247, 174, 171),
+    rgba(206, 154, 209)
+  ); */
   
+ background-color: rgba(206, 154, 209);
+  font-size: 1.5rem;
+  margin-top: 5rem;
+  width: 40%;
+  
+  color: white;
+  font-family: var(--fontFamily);
+  /* transition: all 0.5s ease-in-out; */
+}
+
+.showCheckOutItemInfo{
+  height: 100%;
+  width: 100%;
+
 }
 
 

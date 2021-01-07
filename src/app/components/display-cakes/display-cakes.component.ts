@@ -16,7 +16,7 @@ import {
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
 import { ApiProducts } from '../../models/products';
-import {Router} from '@angular/router'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-display-cakes',
@@ -32,10 +32,12 @@ export class DisplayCakesComponent implements OnInit {
   product: any;
   isClick = true;
   disabled: any;
+  btnClicked: any;
   dis = 'disabled';
   shoppingCartIcon = 'shoppingCartIcon';
-  description = 'hello'
+  description = 'hello';
   qty = 0;
+  dialogRef: any;
 
   // Array
   p: any[] = [];
@@ -54,7 +56,9 @@ export class DisplayCakesComponent implements OnInit {
 
   ngOnInit() {
     this.getDataFromArray();
-   
+    this.arrayS.getClickedMesg().subscribe(result => {
+      this.btnClicked = result;
+    })
   }
   // -------------
   // Methods
@@ -63,10 +67,8 @@ export class DisplayCakesComponent implements OnInit {
     this.openDialogBox(name, img, price);
   }
 
-
-
   openDialogBox(name: any, img: any, price: any): void {
-    const dialogRef = this.dialog.open(AddToCartDialogComponent, {
+    this.dialogRef = this.dialog.open(AddToCartDialogComponent, {
       // width: '250px',
       data: {
         name: name,
@@ -77,32 +79,40 @@ export class DisplayCakesComponent implements OnInit {
       },
     });
 
-    dialogRef.afterClosed().subscribe((result: any) => {
+    this.dialogRef.afterClosed().subscribe((result: any) => {
       this.qty = result;
       const array = [name, img, price, this.qty];
+
       if (this.qty > 0) {
         this.arrayS.sendMsg(array);
+      } else if (this.btnClicked) {
+        this.btnClicked = !this.btnClicked
+        console.log("I am closed")
       } else {
         alert('Quantity cannot be 0');
       }
-    
+      
+      // else {
+        
+
+      //   alert('Quantity cannot be 0');
+      // }
+
       this.qty = 0;
 
       console.log(array);
     });
   }
 
+  
 
-  getDataFromArray(){
-    for(let i in this.cakesItems){
+  getDataFromArray() {
+    for (let i in this.cakesItems) {
       var getD = this.cakesItems[i].description;
-       this.description = getD
+      this.description = getD;
     }
-
   }
   // API CALL PRATICE METHODS
-  
-  
-  
+
   // -----------------------
 }

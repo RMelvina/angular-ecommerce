@@ -10,7 +10,7 @@ import {ApiProducts} from '../../models/products'
 export class ArrayServicesService {
   subject = new Subject();
   cartCount = new Subject();
-  cartCountZero = new Subject();
+  clickedMesg = new Subject();
   productDetails = new Subject();
   observable = new Observable();
 
@@ -27,35 +27,31 @@ export class ArrayServicesService {
   getAllItems() {
     return this.items;
   }
-
+  // -----------------------------
   sendMsg(product: any) {
     this.subject.next(product); //Triggering an event
   }
   getMsg(): Observable<any> {
     return this.subject.asObservable();
   }
-
+  // -----------------------------
+  // -----------------------------
   sendproductDetailsMesg(productD: any) {
     this.productDetails.next(productD);
   }
   getproductDetailsMesg(): Observable<any> {
     return this.productDetails.asObservable();
   }
-
+  // -----------------------------
+  // -----------------------------
   sendCartItemMesg(cartCount: any) {
     this.cartCount.next(cartCount);
-  }
-
-  sentClearCartMesg(cartCountZero: any) {
-    this.cartCountZero.next(cartCountZero);
-  }
-  getCartCountZeroMsg(): Observable<any>{
-    return this.cartCountZero.asObservable();
   }
 
   getCartItemMesg(): Observable<any> {
     return this.cartCount.asObservable();
   }
+  // ------------------------------
 
   // Geting http request from the server
   getApiRequest() {
@@ -64,5 +60,14 @@ export class ArrayServicesService {
     );
     // Observable<any>
   }
+
+  sendClickedMesg(mesg:any){
+    return this.clickedMesg.next(mesg)
+  }
+  getClickedMesg():Observable<any>{
+    return this.clickedMesg.asObservable();
+  }
+
+
 }
 

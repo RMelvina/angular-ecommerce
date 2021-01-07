@@ -1,19 +1,19 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import {DisplayCakesComponent} from '../display-cakes.component'
+import { Component, Inject, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { DisplayCakesComponent } from '../display-cakes.component';
 import {
   MatDialog,
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
 import { ArrayServicesService } from 'src/app/services/shareArrayService/array-services.service';
-import {InfoPgComponent} from '../../info-pg/info-pg.component'
+import { InfoPgComponent } from '../../info-pg/info-pg.component';
 
 export interface DialogData {
   price: string;
   name: string;
   img: any;
   qty: any;
-  description:any
+  description: any;
 }
 @Component({
   selector: 'app-add-to-cart-dialog',
@@ -22,12 +22,16 @@ export interface DialogData {
 })
 export class AddToCartDialogComponent implements OnInit {
   // Decelaration
-  // qyt:any
+
+  // Output
+  @Output() closeDialog = new EventEmitter();
+
+  // Input
+  @Input() btnClicked: any;
 
   constructor(
     private arrayS: ArrayServicesService,
     public dialogRef: MatDialogRef<DisplayCakesComponent>,
-
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {}
 
@@ -36,7 +40,18 @@ export class AddToCartDialogComponent implements OnInit {
 
   // Methods
   onNoClick(): void {
+    //  this.arrayS.sendClickedMesg(this.dialogRef.);
     this.dialogRef.close();
     
+    this.arrayS.sendClickedMesg(true);
+    
+
+    // this.arrayS.getClickedMesg().subscribe(result => {
+    //   if(result == 0){
+    //    alert("No Item")
+
+    //   }
+
+    // })
   }
 }

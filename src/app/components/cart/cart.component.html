@@ -1,43 +1,60 @@
 <div class="container cart">
 
     <div class="container iconCol">
-        <app-cart-items 
-        (close)="close.emit()"
-        [displayCloseIcon] =  true >
+        <app-cart-items (close)="close.emit()" [displayCloseIcon]=true>
         </app-cart-items>
     </div>
 
-    <div class="container text-center" *ngFor = "let product of productsList">
-        
-        <app-cart-items 
-         [displayCloseIcon] =  false
-         [displayItems] = true 
-         [product] = "product"
-         (add) = "add(product)"
-         (min) = "min(product)"
-         [value] = value
-         [total] = "subTotal">
+    <div class="container text-center" *ngFor="let product of productsList">
+
+        <app-cart-items [displayCloseIcon]=false [displayItems]=true [product]="product" (add)="add(product)"
+            (min)="min(product)" [value]=value [total]="subTotal">
         </app-cart-items>
 
         <hr class="divider">
-    </div>  
-    
-    <!-- <hr class="divider"> -->
-    <div class="container">
-        <h2 class="gTotal mt-4"> Grand Total : <span>${{total}}</span></h2>
-        <div class="d-flex flex-row justify-content-between">
-
-            <button mat-button-raised class="btn checkoutBtn" *ngIf="total" (click)="checkoutBtn(products.name,total )"
-                type="button">Checkout</button>
-            <button mat-button-raised class="btn checkoutBtn " *ngIf="total" (click)="clearCart()" type="button">Clear Cart</button>
-        </div>
-        
     </div>
 
-    
+    <div class="container showCheckOutItemInfo d-flex flex-column justify-content-center align-items-center" *ngIf="showCheckOutInfo">
+        <h2 class="productSubTotal">
+            Cake Name:
+        </h2>
+        <span class="productSubTotal">
+            {{checkOutName}}
+        </span>
+        <!------------>
+        <h2 class="productSubTotal mt-5">
+            Cake Total:
+        </h2>
+        <span class="productSubTotal">
+            {{checkOutTotal}}
+        </span>
 
-   <!-- validate -->
+    </div>
+    <!-- *ngIf="checkout" -->
+    <!-- <hr class="divider"> -->
+    <div class="container">
 
-   
+        <h2 class="gTotal mt-4" *ngIf="showTotal"> Grand Total : <span>${{total}}</span></h2>
+
+        <div class="d-flex flex-row justify-content-between">
+
+            <button  
+             mat-raised-button
+            class="btn checkoutBtn" 
+            *ngIf="total" 
+            (click)="checkoutBtn()"
+            type="button">Checkout</button>
+
+            <button  mat-raised-button class="btn checkoutBtn" *ngIf="total" (click)="clearCart()" type="button">Clear
+                Cart</button>
+        </div>
+<!-- mat-button-raised -->
+    </div>
+
+
+
+    <!-- validate -->
+
+
 
 </div>

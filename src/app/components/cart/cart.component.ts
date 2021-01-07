@@ -21,7 +21,6 @@ interface Users {
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-
   // Declaration
   products: any;
   value = 1;
@@ -29,6 +28,10 @@ export class CartComponent implements OnInit {
   subTotal = 0;
   validate: any;
   isAdded!: boolean;
+  checkOutName: any;
+  checkOutTotal: any;
+  showTotal: any;
+  showCheckOutInfo: any;
 
   // Output
   @Output() close = new EventEmitter();
@@ -37,15 +40,14 @@ export class CartComponent implements OnInit {
   productsList = [] as any;
   totals = [] as any;
 
-  constructor(
-    private arrayS: ArrayServicesService
-    ) {}
+  constructor(private arrayS: ArrayServicesService) {}
 
   // @ViewChild('btnD', { static: true }) private paypalRef:
   //   | ElementRef
   //   | undefined;
 
   ngOnInit() {
+    this.showTotal = true;
     // -------
     // console.log(window.paypal);
     //  Paypal button
@@ -72,12 +74,11 @@ export class CartComponent implements OnInit {
     //   })
     //   .render(this.paypalRef?.nativeElement);
     // // --------------
-    
+
     // Works when the buy button is clicked
     this.arrayS.getMsg().subscribe((items) => {
       this.addToCart(items);
       this.checkTotal();
-      
     });
   }
 
@@ -139,13 +140,23 @@ export class CartComponent implements OnInit {
     }
   }
 
-  checkoutBtn(name: any, total: any) {
-    console.log('Your item is: ' + name + ' \n ' + 'your total is: ' + total);
+  checkoutBtn() {
+    var itemName = this.productsList[0].pName;
+    var itemTotal = this.total;
+
+    // console.log('Your item is: ' + name + ' \n ' + 'your total is: ' + this.total);
+    this.checkOutName = itemName;
+    this.checkOutTotal = itemTotal;
+    this.showCheckOutInfo = true;
+    this.showTotal = false;
+    this.clearCart();
+
+    // console.log(this.productsList[0].pName);
   }
 
   clearCart() {
-   var v = this.productsList.length = 0;
-     this.total = 0;
-     this.arrayS.sendCartItemMesg(v);
+    var count = (this.productsList.length = 0);
+    this.total = 0;
+    this.arrayS.sendCartItemMesg(count);
   }
 }
