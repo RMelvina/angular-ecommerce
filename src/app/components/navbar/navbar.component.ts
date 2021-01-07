@@ -42,7 +42,15 @@ export class NavbarComponent implements OnInit {
     this.cIcon = this.cartIconShow;
 
     this.cartCount.getCartItemMesg().subscribe((items: any) => {
-      this.showCount(items);
+      console.log('show count ' + items);
+
+       if (items == 0) {
+         this.arrayCount.length = 0;
+         this.customCartNum = 0;
+       } else{
+        this.showCount(items);
+       }
+      
     });
   }
   // -------------------
@@ -54,42 +62,40 @@ export class NavbarComponent implements OnInit {
   }
 
   showCount(items: any) {
-    
+
+    // Adds items from the get cart mesg
     this.arrayCount.push({
       pName: items[0],
       pImg: items[1],
       pPrice: items[2],
       pQty: items[3],
     });
+
     var count = this.arrayCount.length;
-   
+    
+    // If the count of the array is not 0 than update the cart number
     if (count != 0) {
        this.customCartNum = count;
        this.isStyle = this.customCartNumStyle;
      }
 
-    
-    
-    
-    
-      //  if (this.arrayCount.includes(items[0])) {
-      //    console.log('Name is there ' +  );
-      //  } else {
-      //    console.log('Not there');
-      //  }
-    
-    
+    //  if (this.arrayCount.includes(items[0])) {
+    //    console.log('Name is there ' +  );
+    //  } else {
+    //    console.log('Not there');
+    //  }
+
     //  if (this.arrayCount.includes(items[0])) {
     //      this.customCartNum = count = 0 + 1;
     //      console.log("Included")
     //    }
-    
+
     //   for (let i in this.arrayCount) {
     //   if(count != 0){
     //    if (this.arrayCount[i].includes(items[0])) {
     //      this.customCartNum = count = 0 + 1;
     //    }
-    
+
     //   }
     // }
 
@@ -97,8 +103,8 @@ export class NavbarComponent implements OnInit {
     //    this.customCartNum = count;
     //    this.isStyle = this.customCartNumStyle;
     //   if (count != 0) {
-        // this.customCartNum = count;
-        // this.isStyle = this.customCartNumStyle;
+    // this.customCartNum = count;
+    // this.isStyle = this.customCartNumStyle;
     //   }
     // }
 

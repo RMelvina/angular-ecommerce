@@ -10,6 +10,7 @@ import {ApiProducts} from '../../models/products'
 export class ArrayServicesService {
   subject = new Subject();
   cartCount = new Subject();
+  cartCountZero = new Subject();
   productDetails = new Subject();
   observable = new Observable();
 
@@ -17,7 +18,7 @@ export class ArrayServicesService {
 
   items = [] as any;
 
-  productD: any[] = []
+  productD: any[] = [];
 
   addItems(items: any) {
     return this.items.push(items);
@@ -34,31 +35,33 @@ export class ArrayServicesService {
     return this.subject.asObservable();
   }
 
-
-
-
   sendproductDetailsMesg(productD: any) {
-     this.productDetails.next(productD);
+    this.productDetails.next(productD);
   }
   getproductDetailsMesg(): Observable<any> {
     return this.productDetails.asObservable();
   }
 
-
-
-
-  
   sendCartItemMesg(cartCount: any) {
     this.cartCount.next(cartCount);
   }
-  
+
+  sentClearCartMesg(cartCountZero: any) {
+    this.cartCountZero.next(cartCountZero);
+  }
+  getCartCountZeroMsg(): Observable<any>{
+    return this.cartCountZero.asObservable();
+  }
+
   getCartItemMesg(): Observable<any> {
     return this.cartCount.asObservable();
   }
 
   // Geting http request from the server
   getApiRequest() {
-    return this.httpClient.get<ApiProducts[]>('https://fakestoreapi.com/products');
+    return this.httpClient.get<ApiProducts[]>(
+      'https://fakestoreapi.com/products'
+    );
     // Observable<any>
   }
 }

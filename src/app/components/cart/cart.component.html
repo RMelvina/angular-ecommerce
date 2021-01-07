@@ -8,6 +8,7 @@
     </div>
 
     <div class="container text-center" *ngFor = "let product of productsList">
+        
         <app-cart-items 
          [displayCloseIcon] =  false
          [displayItems] = true 
@@ -17,12 +18,13 @@
          [value] = value
          [total] = "subTotal">
         </app-cart-items>
+
         <hr class="divider">
     </div>  
     
     <!-- <hr class="divider"> -->
     <div class="container">
-        <h2 class="gTotal mt-4">Grand Total : <span>${{total}}</span></h2>
+        <h2 class="gTotal mt-4"> Grand Total : <span>${{total}}</span></h2>
         <div class="d-flex flex-row justify-content-between">
 
             <button mat-button-raised class="btn checkoutBtn" *ngIf="total" (click)="checkoutBtn(products.name,total )"

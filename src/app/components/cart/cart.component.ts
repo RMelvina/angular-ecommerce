@@ -10,6 +10,7 @@ import {
 import { products } from 'src/app/models/items';
 
 import { ArrayServicesService } from '../../services/shareArrayService/array-services.service';
+
 interface Users {
   name: string;
   age: string;
@@ -20,12 +21,14 @@ interface Users {
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
+
   // Declaration
   products: any;
   value = 1;
   total = 0;
   subTotal = 0;
   validate: any;
+  isAdded!: boolean;
 
   // Output
   @Output() close = new EventEmitter();
@@ -34,7 +37,9 @@ export class CartComponent implements OnInit {
   productsList = [] as any;
   totals = [] as any;
 
-  constructor(private arrayS: ArrayServicesService) {}
+  constructor(
+    private arrayS: ArrayServicesService
+    ) {}
 
   // @ViewChild('btnD', { static: true }) private paypalRef:
   //   | ElementRef
@@ -67,15 +72,16 @@ export class CartComponent implements OnInit {
     //   })
     //   .render(this.paypalRef?.nativeElement);
     // // --------------
+    
     // Works when the buy button is clicked
     this.arrayS.getMsg().subscribe((items) => {
       this.addToCart(items);
       this.checkTotal();
+      
     });
   }
 
   // Methods
-
   add(product: any) {
     product.qty++;
     this.checkTotal();
@@ -101,7 +107,8 @@ export class CartComponent implements OnInit {
   }
 
   addToCart(items: any) {
-    let isAdded = false;
+    // let isAdded = false;
+    this.isAdded = false;
 
     //Looping through the array to check the name of the cake
     for (let i in this.productsList) {
@@ -112,12 +119,12 @@ export class CartComponent implements OnInit {
         this.productsList[i].qty++;
         // Setting the isAdded variable to true which means the product is already added
         //  to the cart
-        isAdded = true;
+        this.isAdded = true;
         break;
       }
     }
     //  Checking if there is any product in the cart with same name as the adding product
-    if (!isAdded) {
+    if (!this.isAdded) {
       // If not than adding the product to the cart
       this.productsList.push({
         pName: items[0],
@@ -126,6 +133,7 @@ export class CartComponent implements OnInit {
         subTotal: 0,
         qty: 1,
       });
+
       // Sending the length number of the cart to update the cart number
       this.arrayS.sendCartItemMesg(items);
     }
@@ -135,10 +143,9 @@ export class CartComponent implements OnInit {
     console.log('Your item is: ' + name + ' \n ' + 'your total is: ' + total);
   }
 
-  clearCart(){
-    this.productsList.length = 0;
-    this.total = 0;
-    
-
+  clearCart() {
+   var v = this.productsList.length = 0;
+     this.total = 0;
+     this.arrayS.sendCartItemMesg(v);
   }
 }
