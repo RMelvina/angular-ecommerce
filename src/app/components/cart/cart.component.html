@@ -14,41 +14,41 @@
         <hr class="divider">
     </div>
 
-    <div class="container showCheckOutItemInfo d-flex flex-column justify-content-center align-items-center" *ngIf="showCheckOutInfo">
-        <h2 class="productSubTotal">
+    <div class="container showCheckOutItemInfo d-flex flex-column justify-content-center align-items-center"
+        *ngIf="showCheckOutInfo">
+        <!-- <h2 class="productSubTotal">
             Cake Name:
         </h2>
         <span class="productSubTotal">
             {{checkOutName}}
-        </span>
+        </span> -->
         <!------------>
-        <h2 class="productSubTotal mt-5">
-            Cake Total:
+        <h2 class="productSubTotal ">
+            Payment is successful
         </h2>
+        <h2 class="productSubTotal ">
+            Your Total is:
+        </h2>
+
         <span class="productSubTotal">
             {{checkOutTotal}}
         </span>
 
     </div>
-    <!-- *ngIf="checkout" -->
-    <!-- <hr class="divider"> -->
+
     <div class="container">
 
         <h2 class="gTotal mt-4" *ngIf="showTotal"> Grand Total : <span>${{total}}</span></h2>
 
         <div class="d-flex flex-row justify-content-between">
 
-            <button  
-             mat-raised-button
-            class="btn checkoutBtn" 
-            *ngIf="total" 
-            (click)="checkoutBtn()"
-            type="button">Checkout</button>
+            <button mat-raised-button class="btn checkoutBtn" *ngIf="total" (click)="checkoutBtn()"
+                type="button">Checkout</button>
 
-            <button  mat-raised-button class="btn checkoutBtn" *ngIf="total" (click)="clearCart()" type="button">Clear
+            <button mat-raised-button class="btn checkoutBtn" *ngIf="total" (click)="clearCart()" type="button">Clear
                 Cart</button>
         </div>
-<!-- mat-button-raised -->
+        <!-- mat-button-raised -->
     </div>
 
 

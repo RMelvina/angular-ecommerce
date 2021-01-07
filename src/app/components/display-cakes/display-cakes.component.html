@@ -7,12 +7,12 @@
         </div>
         <div class="display-cakes-div pt-4">
             <div class="row">
-                <div class="col-lg-4 p-2 " *ngFor="let cakeItem of cakesItems; index as id">
+                
+                <div class="col-lg-4 p-2" *ngFor="let cakeItem of cakesItems; index as id">
                     <div class="card">
 
                         <app-cakes-list-item [section1]=true [cakeItem]="cakeItem"
                             (onClickEvent)="buyBtn(cakeItem.name,cakeItem.img,cakeItem.price)"
-                            
                             [cakeItemId]="id">
                         </app-cakes-list-item>
 

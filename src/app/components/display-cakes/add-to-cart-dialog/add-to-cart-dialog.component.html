@@ -6,7 +6,9 @@
         <h1 mat-dialog-title class="text-center title"> {{data.name}}</h1>
         <h2 class="price">${{data.price}}</h2>
         <p class="dialogPg" >{{data.description}}</p>
-        <input matInput type="number" min="0" max="10" [(ngModel)]="data.qty" value={{data.qty}}>
+
+        <input matInput type="number" min="0" max="10" [(ngModel)]="data.qty" > 
+        <!-- value={{data.qty}} -->
 
         <div class="container addToCartDialogBtn-container">
             <button mat-raised-button class="btn addToCartDialogBtn mr-4" (click)="onNoClick()">No Thanks</button>

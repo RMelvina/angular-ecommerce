@@ -132,8 +132,10 @@ export class CartComponent implements OnInit {
         pImg: items[1],
         pPrice: items[2],
         subTotal: 0,
-        qty: 1,
+        qty: items[3],
       });
+      this.showCheckOutInfo = false;
+      this.showTotal = true;
 
       // Sending the length number of the cart to update the cart number
       this.arrayS.sendCartItemMesg(items);
@@ -141,14 +143,14 @@ export class CartComponent implements OnInit {
   }
 
   checkoutBtn() {
-    var itemName = this.productsList[0].pName;
     var itemTotal = this.total;
 
     // console.log('Your item is: ' + name + ' \n ' + 'your total is: ' + this.total);
-    this.checkOutName = itemName;
+    // this.checkOutName = array;
     this.checkOutTotal = itemTotal;
     this.showCheckOutInfo = true;
     this.showTotal = false;
+   
     this.clearCart();
 
     // console.log(this.productsList[0].pName);

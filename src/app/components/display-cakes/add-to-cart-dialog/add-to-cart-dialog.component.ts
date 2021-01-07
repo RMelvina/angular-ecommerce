@@ -24,10 +24,10 @@ export class AddToCartDialogComponent implements OnInit {
   // Decelaration
 
   // Output
-  @Output() closeDialog = new EventEmitter();
+  
 
-  // Input
-  @Input() btnClicked: any;
+
+
 
   constructor(
     private arrayS: ArrayServicesService,
@@ -36,13 +36,16 @@ export class AddToCartDialogComponent implements OnInit {
   ) {}
 
   // public di: MatDialogRef<InfoPgComponent> DisplayCakesComponent
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // Disable outside dialog click and close
+    this.dialogRef.disableClose = true
+  }
 
   // Methods
   onNoClick(): void {
     //  this.arrayS.sendClickedMesg(this.dialogRef.);
     this.dialogRef.close();
-    
+    // Sending if no thanx button is clicked or not
     this.arrayS.sendClickedMesg(true);
     
 

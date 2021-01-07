@@ -68,6 +68,7 @@ export class DisplayCakesComponent implements OnInit {
   }
 
   openDialogBox(name: any, img: any, price: any): void {
+   
     this.dialogRef = this.dialog.open(AddToCartDialogComponent, {
       // width: '250px',
       data: {
@@ -81,14 +82,22 @@ export class DisplayCakesComponent implements OnInit {
 
     this.dialogRef.afterClosed().subscribe((result: any) => {
       this.qty = result;
+      
       const array = [name, img, price, this.qty];
+      console.log(array);
 
+      
+      // If the qty is more than 0 
       if (this.qty > 0) {
+        // Than send it to the cart with send mesg
         this.arrayS.sendMsg(array);
+        // If the no thanx btn is clicked is true
       } else if (this.btnClicked) {
+        // Than show this mesg
         this.btnClicked = !this.btnClicked
         console.log("I am closed")
       } else {
+        // Other wise show this mesg
         alert('Quantity cannot be 0');
       }
       
@@ -98,6 +107,7 @@ export class DisplayCakesComponent implements OnInit {
       //   alert('Quantity cannot be 0');
       // }
 
+      // After closing the dialog box set the qty back to 0
       this.qty = 0;
 
       console.log(array);
